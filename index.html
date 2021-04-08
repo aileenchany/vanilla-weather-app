@@ -10,16 +10,58 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Limelight&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="col">
-        <h1>Hello World</h1>
-        <a href="" class="btn btn-primary">Click Me</a>
+      <div class="col" id="app-container">
+        <p id="title">Weather App</p>
+        <div class="row">
+          <div class="col-6">
+            <ul>
+              <li id="city">New York</li>
+              <li id="date">Thursday, 4/8, 09:28 am</li>
+              <li id="description">Sunny</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li id="icon">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                  alt="Sunny"
+                /><span id="temperature">57 °F|°C</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+    <small>
+      <a
+        href="https://github.com/aileenchany/weather-app"
+        target="_blank"
+        id="github-link"
+        >Open-source code</a
+      >
+      | By
+      <a
+        href="https://www.linkedin.com/in/aileen-chanmiranda/"
+        target="_blank"
+        id="coder-link"
+        >ACM</a
+      >.
+    </small>
 
     <script src="src/app.js"></script>
   </body>
