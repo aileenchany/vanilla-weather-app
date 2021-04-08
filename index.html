@@ -24,44 +24,61 @@
   </head>
   <body>
     <div class="container">
-      <div class="col" id="app-container">
-        <p id="title">Weather App</p>
-        <div class="row">
-          <div class="col-6">
-            <ul>
-              <li id="city">New York</li>
-              <li id="date">Thursday, 4/8, 09:28 am</li>
-              <li id="description">Sunny</li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <ul>
-              <li id="icon">
+      <div class="weather-app-wrapper">
+        <div class="col" id="weather-app">
+          <p id="title">Weather App</p>
+          <div class="row">
+            <div class="col-6">
+              <ul>
+                <li>
+                  <span id="city">New York</span>, <span id="country">US</span>
+                </li>
+                <li id="date">Thursday, 4/8, 09:28 am</li>
+                <li>
+                  <span id="description">Sunny</span>,
+                  <span id="high-temp">56</span>/<span id="low-temp">53</span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <div class="float-left">
                 <img
+                  id="icon"
                   src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                   alt="Sunny"
-                /><span id="temperature">57 °F|°C</span>
-              </li>
-            </ul>
+                />
+              </div>
+              <div class="float-left">
+                <span id="temperature">57</span
+                ><span id="units"><a href="#">°F</a> | <a href="#">°C</a></span>
+              </div>
+            </div>
+
+            <hr />
+            <div class="row">
+              <div class="col">Feels like: 78</div>
+              <div class="col">Humidity: 50%</div>
+              <div class="col">Wind speed: 5 Mph</div>
+            </div>
           </div>
         </div>
       </div>
+      <small>
+        <a
+          href="https://github.com/aileenchany/weather-app"
+          target="_blank"
+          id="github-link"
+          >Open-source code</a
+        >
+        | By
+        <a
+          href="https://www.linkedin.com/in/aileen-chanmiranda/"
+          target="_blank"
+          id="coder-link"
+          >ACM</a
+        >.
+      </small>
     </div>
-    <small>
-      <a
-        href="https://github.com/aileenchany/weather-app"
-        target="_blank"
-        id="github-link"
-        >Open-source code</a
-      >
-      | By
-      <a
-        href="https://www.linkedin.com/in/aileen-chanmiranda/"
-        target="_blank"
-        id="coder-link"
-        >ACM</a
-      >.
-    </small>
 
     <script src="src/app.js"></script>
   </body>
