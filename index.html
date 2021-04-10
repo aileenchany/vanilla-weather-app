@@ -36,8 +36,8 @@
           <div class="row justify-content-between current-weather-conditions">
             <div class="col-6">
               <div class="location">
-                <span id="city">New York</span>,
-                <span id="country">US</span>
+                <span id="city"></span>,
+                <span id="country"></span>
               </div>
               <div class="date-and-time">
                 <span id="date">Saturday</span>, <span id="month">4</span>/<span
@@ -46,10 +46,10 @@
                 >, <span id="hours">09</span>:<span id="minutes">00</span>
                 <span id="am-pm">am</span>
               </div>
-              <div id="description">Sunny</div>
+              <div class="description" id="description"></div>
             </div>
 
-            <div class="col-6 right">
+            <div class="col-6">
               <div class="float-left">
                 <img
                   class="icon"
@@ -59,7 +59,7 @@
                 />
               </div>
               <div class="float-left">
-                <span class="temperature" id="current-temp">57</span
+                <span class="temperature" id="current-temp"></span
                 ><span class="units"
                   ><a href="#">°F</a> | <a href="#">°C</a></span
                 >
@@ -69,15 +69,15 @@
             <!--   **********  Additional Weather Conditions  **********   -->
             <div class="row align-items-center weather-conditions">
               <div class="col-3">
-                Feels Like: <span id="feels-like-temp">78</span>°
+                Feels like: <span id="feels-like-temp"></span>°
               </div>
               <div class="col-3">
-                H|L: <span class="high-temp" id="high-temp">78</span>°
-                <span class="low-temp" id="low-temp">56</span>°
+                H/L: <span class="high-temp" id="high-temp"></span>°
+                <span class="low-temp" id="low-temp"></span>°
               </div>
-              <div class="col-3">Humidity: <span id="humidity">50</span>%</div>
+              <div class="col-3">Humidity: <span id="humidity"></span>%</div>
               <div class="col-3">
-                Winds: <span id="wind-speed">5</span>
+                Winds: <span id="wind-speed"></span>
                 <span id="speed-unit">Mph</span>
               </div>
             </div>
@@ -85,17 +85,20 @@
             <!--   **********  Weather Forecast  **********   -->
             <div class="row weather-forecast">
               <div class="col-2">
-                <div class="weather-forecast-date">Sat</div>
-                <img src="" alt="icon" />
-                <div class="high-low-temperatures">
-                  <span class="high-temp">18°</span>
-                  <span class="low-temp">12°</span>
+                <div class="weather-forecast-preview">
+                  <div class="weather-forecast-date">Sat</div>
+                  <img src="" alt="icon" />
+                  <div class="high-low-temperatures">
+                    <span class="high-temp">18°</span>
+                    <span class="low-temp">12°</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!--   **********  Coded By  **********   -->
       <div class="row">
         <div class="col-md-6 coded-by">
           <small>

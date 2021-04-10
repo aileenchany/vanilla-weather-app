@@ -45,7 +45,9 @@ a {
 .float-left {
   float: left;
 }
-
+.description {
+  text-transform: capitalize;
+}
 .location,
 .title {
   font-family: "Poiret One", cursive;
