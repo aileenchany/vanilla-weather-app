@@ -38,7 +38,7 @@ a {
   background-size: cover;
   margin: 0 auto;
   padding: 25px;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 
 /*  ---------- Weather App Styling CSS  ----------  */
@@ -71,6 +71,7 @@ a {
   font-size: 40px;
   padding-top: 10px;
 }
+
 .title {
   font-size: 24px;
   text-align: center;
@@ -104,6 +105,11 @@ a {
 }
 .weather-forecast-date {
   font-weight: bold;
+}
+#search-button,
+#current-location {
+  background: white;
+  border: 1px solid #d0d2d3;
 }
 /*  ---------- Footer CSS  ----------  */
 
