@@ -38,6 +38,37 @@ function displayTemperature(response) {
     document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+
+    
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+
+    let forecastHTML =`<div class="row">`;
+    //Below is the loop function that multiplies html code as it goes thru each day in the array
+    days.forEach(function(day){
+        forecastHTML = forecastHTML + `<div class="col-2">
+                    <div class="weather-forecast-preview">
+                    <div class="weather-forecast-date">${day}</div>
+                    <img
+                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        alt="icon"
+                        class="icon-img"
+                        width="56px"
+                    />
+                    <div class="high-low-temperatures">
+                        <span class="high-temp">18°</span>
+                        <span class="low-temp">12°</span>
+                    </div>
+                    </div>
+                </div>`;
+    })
+        
+        
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+}
+
 function displayCelciusTemperature(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#current-temp");
@@ -83,4 +114,5 @@ form.addEventListener("submit", handleSubmit);
 
 //This calls the function named "search" & the weather of the default city "New York" is displayed.
 search("New York");
+displayForecast();
 
