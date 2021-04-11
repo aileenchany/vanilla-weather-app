@@ -16,7 +16,7 @@ function formatDate (timestamp) {
 
     let month = now.getMonth() + 1;
     let date = now.getDate();
-    return `${day}, ${month}/${date}, ${hours}:${minutes} ${amOrPm}`
+    return `${day}, ${month}/${date}, ${hours}:${minutes} ${amOrPm}`;
 
 }
 function getForecast(coordinates) {
@@ -34,7 +34,7 @@ function displayTemperature(response) {
     document.querySelector("#description").innerHTML = response.data.weather[0].description;
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
-    document.querySelector("#feels-like-temp").innerHTML = Math.round(response.data.main.feels_like)
+    document.querySelector("#feels-like-temp").innerHTML = Math.round(response.data.main.feels_like);
     document.querySelector("#high-temp").innerHTML = Math.round(response.data.main.temp_max);
     document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min);
     document.querySelector("#main-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);

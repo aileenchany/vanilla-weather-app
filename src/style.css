@@ -72,9 +72,11 @@ a {
   font-size: 40px;
   padding-top: 10px;
 }
-#location-icon,
+#location-icon {
+  fill: url(#my-gold-gradient-1);
+}
 #search-icon {
-  fill: url(#my-gold-gradient) red;
+  fill: url(#my-gold-gradient-2);
 }
 .title {
   font-size: 24px;
@@ -93,7 +95,7 @@ a {
 }
 .temperature {
   font-size: 58px;
-  font-weight: 400px;
+  font-weight: 400;
 }
 .units {
   position: relative;
@@ -101,7 +103,7 @@ a {
   top: -32px;
 }
 .weather-conditions {
-  align-content: top;
+  top: 0;
   margin: 25px auto;
   padding-left: 0;
 }
@@ -116,7 +118,7 @@ a {
 #search-button,
 #current-location {
   background: white;
-  border: 1px solid #e8ebed;
+  border: 1px transparent #a3a5a7;
 }
 /*  ---------- Footer CSS  ----------  */
 .coded-by {
