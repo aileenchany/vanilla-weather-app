@@ -47,37 +47,44 @@ function displayTemperature(response) {
     getForecast(response.data.coord);
 }
 
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return days[day];
+}
+
 function displayForecast(response) {
-    console.log(response.data.daily);
+    let dailyForecast = response.data.daily;
+
     let forecastElement = document.querySelector("#forecast");
 
-    
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-
-    let forecastHTML =`<div class="row">`;
-    //Below is the loop function that multiplies html code as it goes thru each day in the array
-    days.forEach(function(day){
+    let forecastHTML =`<div class="row" id="forecast-row">`;
+    dailyForecast.forEach(function(forecastDay, index){
+        if (index < 6) {
         forecastHTML = forecastHTML + `<div class="col-2">
                     <div class="weather-forecast-preview">
-                    <div class="weather-forecast-date">${day}</div>
+                    <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
                     <img
-                        src="http://openweathermap.org/img/wn/10d@2x.png"
+                        src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                         alt="icon"
                         class="icon-img"
                         width="56px"
                     />
                     <div class="high-low-temperatures">
-                        <span class="high-temp">18°</span>
-                        <span class="low-temp">12°</span>
+                        <span class="high-temp">${Math.round(forecastDay.temp.max)}°</span>
+                        <span class="low-temp">${Math.round(forecastDay.temp.min)}°</span>
                     </div>
                     </div>
                 </div>`;
-    })
-        
+        }
+    });
+  
         
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
 }
+
 
 function displayCelciusTemperature(event) {
     event.preventDefault();

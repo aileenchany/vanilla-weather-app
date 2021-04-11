@@ -105,7 +105,9 @@ a {
   margin: 25px auto;
   padding-left: 0;
 }
-.weather-forecast {
+.weather-forecast,
+#forecast-row {
+  margin: 0 auto;
   text-align: center;
 }
 .weather-forecast-date {
