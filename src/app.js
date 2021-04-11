@@ -20,7 +20,6 @@ function formatDate (timestamp) {
 
 }
 function displayTemperature(response) {
-    
     document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#country").innerHTML = response.data.sys.country;
@@ -35,11 +34,13 @@ function displayTemperature(response) {
     //We need to multiply dt by 1000 to turn it into milisecondshis to get the current date and time
     document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
 }
+
 function search(city) {
     let apiKey = "f9ed2779c7a88244e3c6c97a1ad830b5";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayTemperature);
     }
+
 function handleSubmit(event) {
     event.preventDefault();
     //Below we access the input and then we use its value in the search function.
@@ -47,9 +48,9 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
-//This calls the function named "search" & the weather of the default city "New York" is displayed.
-search("New York");
-
 //This allows the form to listen for a submit and kickstarts the handleSubmit function.
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+//This calls the function named "search" & the weather of the default city "New York" is displayed.
+search("New York");
