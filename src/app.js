@@ -19,6 +19,13 @@ function formatDate (timestamp) {
     return `${day}, ${month}/${date}, ${hours}:${minutes} ${amOrPm}`
 
 }
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "f9ed2779c7a88244e3c6c97a1ad830b5";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=imperial`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+}
 function displayTemperature(response) {
     fahrenheitTemperature = response.data.main.temp;
     document.querySelector("#current-temp").innerHTML = Math.round(fahrenheitTemperature);
@@ -36,9 +43,12 @@ function displayTemperature(response) {
     //dt = unixtime GMT (greenwich mean time). It is the number of seconds since Jan 1st, 1970. 
     //We need to multiply dt by 1000 to turn it into milisecondshis to get the current date and time
     document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
+    
+    getForecast(response.data.coord);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
 
     
@@ -114,5 +124,5 @@ form.addEventListener("submit", handleSubmit);
 
 //This calls the function named "search" & the weather of the default city "New York" is displayed.
 search("New York");
-displayForecast();
+
 
