@@ -9,13 +9,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 a {
+  color: #ec6e4b;
   text-decoration: none;
 }
-.coded-by {
-  text-align: center;
-  margin: 0 auto;
-}
-
 /*  ---------- Weather App Structure CSS  ----------  */
 .weather-app-wrapper {
   background: linear-gradient(
@@ -42,6 +38,11 @@ a {
 }
 
 /*  ---------- Weather App Styling CSS  ----------  */
+.current-weather-conditions .active {
+  color: #5a5857;
+  cursor: default;
+  text-decoration: none;
+}
 .float-left {
   float: left;
 }
@@ -71,10 +72,14 @@ a {
   font-size: 40px;
   padding-top: 10px;
 }
-
+#location-icon,
+#search-icon {
+  fill: url(#my-gold-gradient) red;
+}
 .title {
   font-size: 24px;
   text-align: center;
+  margin-bottom: 20px;
 }
 .high-low-temperatures {
   font-size: 13px;
@@ -109,12 +114,13 @@ a {
 #search-button,
 #current-location {
   background: white;
-  border: 1px solid #d0d2d3;
+  border: 1px solid #e8ebed;
 }
 /*  ---------- Footer CSS  ----------  */
-
-#coded-by {
-  font-size: 10px;
+.coded-by {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 auto;
 }
 #coder-link,
 #github-link {

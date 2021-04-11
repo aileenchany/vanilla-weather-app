@@ -20,7 +20,8 @@ function formatDate (timestamp) {
 
 }
 function displayTemperature(response) {
-    document.querySelector("#current-temp").innerHTML = Math.round(response.data.main.temp);
+    fahrenheitTemperature = response.data.main.temp;
+    document.querySelector("#current-temp").innerHTML = Math.round(fahrenheitTemperature);
     document.querySelector("#city").innerHTML = response.data.name;
     document.querySelector("#country").innerHTML = response.data.sys.country;
     document.querySelector("#description").innerHTML = response.data.weather[0].description;
@@ -29,10 +30,30 @@ function displayTemperature(response) {
     document.querySelector("#feels-like-temp").innerHTML = Math.round(response.data.main.feels_like)
     document.querySelector("#high-temp").innerHTML = Math.round(response.data.main.temp_max);
     document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min);
+    document.querySelector("#main-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    document.querySelector("#main-icon").setAttribute("alt", response.data.weather[0].description);
     //Below is a function that gets the current date & time data from the OpenWeather API.
     //dt = unixtime GMT (greenwich mean time). It is the number of seconds since Jan 1st, 1970. 
     //We need to multiply dt by 1000 to turn it into milisecondshis to get the current date and time
     document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
+}
+
+function displayCelciusTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#current-temp");
+    //remove the active class from the fahrenheit link
+    fahrenheitLink.classList.remove("active");
+    celciusLink.classList.add("active");
+    let celciusTemp = (fahrenheitTemperature - 32) * 5/9;
+    temperatureElement.innerHTML = Math.round(celciusTemp);
+}
+
+function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    celciusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let temperatureElement = document.querySelector("#current-temp");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function search(city) {
@@ -48,9 +69,18 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
+let fahrenheitTemperature = null;
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
 //This allows the form to listen for a submit and kickstarts the handleSubmit function.
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 //This calls the function named "search" & the weather of the default city "New York" is displayed.
 search("New York");
+
